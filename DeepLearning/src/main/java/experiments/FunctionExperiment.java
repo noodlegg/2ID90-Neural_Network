@@ -16,9 +16,9 @@ import nl.tue.s2id90.dl.input.InputReader;
 
 public class FunctionExperiment extends GUIExperiment {
     // (hyper)parameters
-    int batchSize = 32;
-    int epochs = 10;                // number of epochs a training takes
-    double learningRate = 0.01;     // parameter for gradient descent optimization method
+    int batchSize = 42;
+    int epochs = 3;                // number of epochs a training takes
+    double learningRate = 0.025;     // parameter for gradient descent optimization method
 
     public void go() throws IOException {
         // you are going to add code here
@@ -43,8 +43,8 @@ public class FunctionExperiment extends GUIExperiment {
 
     Model createModel(int inputs, int outputs) {
         Model model = new Model(new InputLayer("In", new TensorShape(inputs), true));
+        //model.addLayer(new FullyConnected("fc1", new TensorShape(inputs), 1, new RELU()));
         model.addLayer(new SimpleOutput("Out", new TensorShape(inputs), outputs, new MSE(), true));
-        //model.addLayer(new FullyConnected("fc1", new TensorShape(inputs), outputs, new RELU()));
         return model;
     }
 
