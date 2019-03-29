@@ -10,7 +10,7 @@ import org.nd4j.linalg.factory.Nd4j;
  */
 public class GradientDescentMomentum implements UpdateFunction {
     INDArray update;
-    double mu = 0.9;
+    double mu = 0.5;
     INDArray prevV;
     
     // Does a gradient descent step with factor 'minus learningRate' and  corrected for batchSize.

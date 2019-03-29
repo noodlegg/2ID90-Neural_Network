@@ -62,7 +62,6 @@ public class SCTExperiment extends GUIExperiment {
                 .updateFunction(GradientDescentMomentum::new)
                 .build();
         trainModel(sgd, reader, epochs, 0);
-
     }
 
     Model createModel(int inputs, int outputs) {
