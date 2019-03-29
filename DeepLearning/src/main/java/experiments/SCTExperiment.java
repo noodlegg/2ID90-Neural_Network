@@ -20,9 +20,9 @@ import nl.tue.s2id90.dl.javafx.ShowCase;
 
 public class SCTExperiment extends GUIExperiment {
     // (hyper)parameters
-    int batchSize = 68;
-    int epochs = 5;                // number of epochs a training takes
-    double learningRate = 0.15;    // parameter for gradient descent optimization method
+    int batchSize = 32;
+    int epochs = 10;                // number of epochs a training takes
+    double learningRate = 0.01;    // parameter for gradient descent optimization method
 
     // add two fields to your Experiment class
     String[] labels = {
