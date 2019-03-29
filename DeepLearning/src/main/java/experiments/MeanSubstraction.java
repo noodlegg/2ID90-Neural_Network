@@ -14,7 +14,7 @@ public class MeanSubstraction implements DataTransform {
         for (TensorPair pair : data) {
             //..       
             Tensor t = pair.model_input;
-            //INDArray a = t.intValue();
+            INDArray a = t.getValues();
         }
         //...
     }
