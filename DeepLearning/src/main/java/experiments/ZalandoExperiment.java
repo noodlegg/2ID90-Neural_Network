@@ -19,9 +19,9 @@ import nl.tue.s2id90.dl.javafx.ShowCase;
 
 public class ZalandoExperiment extends GUIExperiment {
     // (hyper)parameters
-    int batchSize = 32;
+    int batchSize = 68;
     int epochs = 5;                // number of epochs a training takes
-    double learningRate = 0.01;    // parameter for gradient descent optimization method
+    double learningRate = 0.15;    // parameter for gradient descent optimization method
 
     // add two fields to your Experiment class
     String[] labels = {
@@ -55,11 +55,12 @@ public class ZalandoExperiment extends GUIExperiment {
                 .validator(new Classification())
                 .build();
         trainModel(sgd, reader, epochs, 0);
+
     }
 
     Model createModel(int inputs, int outputs) {
-        Model model = new Model(new InputLayer("In", new TensorShape(inputs), true));
-        model.addLayer(new Flatten("Flatten", new TensorShape(inputs)));
+        Model model = new Model(new InputLayer("In", new TensorShape(28,28,1), true));
+        model.addLayer(new Flatten("Flatten", new TensorShape(28,28,1)));
         model.addLayer(new OutputSoftmax("Out", new TensorShape(inputs), outputs, new CrossEntropy()));
         return model;
     }
