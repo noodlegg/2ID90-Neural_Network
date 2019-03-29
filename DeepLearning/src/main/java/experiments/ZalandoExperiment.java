@@ -10,6 +10,7 @@ import nl.tue.s2id90.dl.NN.loss.CrossEntropy;
 import nl.tue.s2id90.dl.NN.optimizer.Optimizer;
 import nl.tue.s2id90.dl.NN.optimizer.SGD;
 import nl.tue.s2id90.dl.NN.tensor.TensorShape;
+import nl.tue.s2id90.dl.NN.transform.DataTransform;
 import nl.tue.s2id90.dl.NN.validate.Classification;
 import nl.tue.s2id90.dl.experiment.GUIExperiment;
 import nl.tue.s2id90.dl.input.InputReader;
@@ -35,6 +36,12 @@ public class ZalandoExperiment extends GUIExperiment {
         // read input and print some information on the data
         InputReader reader = MNISTReader.fashion(batchSize);
         System.out.println("Reader info:\n" + reader.toString());
+        
+        // Implement MeanSubstraction
+        MeanSubstraction ms = new MeanSubstraction();
+        ms.fit(reader.getTrainingData());
+        ms.transform(reader.getTrainingData());
+        ms.transform(reader.getValidationData());
 
         // print a record
         reader.getValidationData(1).forEach(System.out::println);
