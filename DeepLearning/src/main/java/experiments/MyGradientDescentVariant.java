@@ -13,9 +13,9 @@ import org.nd4j.linalg.factory.Nd4j;
 
 /**
  *
- * @author denni
+ * @author dennis
  */
-public class MyGradientDescentVariant implements UpdateFunction{
+public class MyGradientDescentVariant implements UpdateFunction {
     double v = 0;
     int momentum = 0; //put a value for it.
     INDArray update;
